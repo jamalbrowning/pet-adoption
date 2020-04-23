@@ -1,3 +1,33 @@
 body{
   background-color: #D46A6A;
+  text-align: center;
+ 
+}
+button{
+  background-color: aliceblue;
+}
+
+#animals {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+.petCards {
+  border: 3px dotted rebeccapurple;
+  width: 300px;
+  margin: 20px;
+  padding: 10px;
+  background-color: white;
+  box-shadow: black;
+  display: flex;
+  justify-content: center;
+  flex-flow: column wrap ;
+  align-items: center;
+}
+.petCards img {
+  width: 200px; /* width of container */
+  height: 250px; /* height of container */
+  object-fit: cover;
+  border: 5px solid black;  
+    
 }
