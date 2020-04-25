@@ -13,16 +13,17 @@ button{
   justify-content: center;
 }
 .petCards {
-  border: 3px dotted rebeccapurple;
+  
   width: 300px;
   margin: 20px;
   padding: 10px;
-  background-color: white;
-  box-shadow: black;
+  background-color: #AA3939;
+  box-shadow: 2px 2px #550000;
   display: flex;
   justify-content: center;
   flex-flow: column wrap ;
   align-items: center;
+  border-radius: 10px;
 }
 .petCards img {
   width: 200px; /* width of container */
@@ -31,3 +32,21 @@ button{
   border: 5px solid black;  
     
 }
+.myBtn{
+  list-style: none;
+  display: flex;
+  justify-content: space-evenly;
+ 
+  
+}
+.myBtn li{
+  background-color: #FFAAAA;
+  width: 70px;
+  height: 30px;
+  padding: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+}
+
