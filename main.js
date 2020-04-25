@@ -34,12 +34,43 @@ const animalArray = [
     specialSkill: "Butterfly Whisperer",
     typeOfPet: 'CATO' ,
   },
-]
+];
+// create button filter
+const dogBtn = document.getElementById('dog');
+const catBtn = document.getElementById('cat');
+const lizBtn = document.getElementById('liz');
+const allBtn = document.getElementById('all');
+
+const filterPets = (petType) => {
+  filteredPets = [];
+  
+  animalArray.forEach(pet => {
+    if(pet.typeOfPet === petType) {
+      filteredPets.push(pet);
+    }
+  });
+  animalCards(filteredPets);
+};
+
+dogBtn.addEventListener('click', function(){
+  filterPets('DOGO')
+});
+catBtn.addEventListener('click', function(){
+  filterPets('CATO')
+});
+lizBtn.addEventListener('click', function(){
+  filterPets('LIZZO')
+});
+allBtn.addEventListener('click', function(){
+  animalCards(animalArray);
+});
+
 const printToDom = (selector, textToPrint) => {
   console.log('in printToDom', selector , textToPrint)
   const selectedDiv = document.querySelector(selector);
   selectedDiv.innerHTML = textToPrint;
 }
+//for all
 const animalCards = (obj) => {
   let domString = '';
   for (let i = 0;i < obj.length; i++){
@@ -55,15 +86,10 @@ const animalCards = (obj) => {
 }
 
 
-// const btnClick = (e) => {
 
-// }
-// document.getElementById("all").addEventListener("click", btnClick);
-// document.getElementById("dog").addEventListener("click", btnClick);
-// document.getElementById("cat").addEventListener("click", btnClick);
-// document.getElementById("liz").addEventListener("click", btnClick);
 
 const init = () => {
   animalCards(animalArray);
+  
 }
 init()
