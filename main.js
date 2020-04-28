@@ -35,42 +35,14 @@ const animalArray = [
     typeOfPet: 'CATO' ,
   },
 ];
-// create button filter
-const dogBtn = document.getElementById('dog');
-const catBtn = document.getElementById('cat');
-const lizBtn = document.getElementById('liz');
-const allBtn = document.getElementById('all');
 
-const filterPets = (petType) => {
-  filteredPets = [];
-  
-  animalArray.forEach(pet => {
-    if(pet.typeOfPet === petType) {
-      filteredPets.push(pet);
-    }
-  });
-  animalCards(filteredPets);
-};
-
-dogBtn.addEventListener('click', function(){
-  filterPets('DOGO')
-});
-catBtn.addEventListener('click', function(){
-  filterPets('CATO')
-});
-lizBtn.addEventListener('click', function(){
-  filterPets('LIZZO')
-});
-allBtn.addEventListener('click', function(){
-  animalCards(animalArray);
-});
 
 const printToDom = (selector, textToPrint) => {
   console.log('in printToDom', selector , textToPrint)
   const selectedDiv = document.querySelector(selector);
   selectedDiv.innerHTML = textToPrint;
 }
-//for all
+//create animal cards
 const animalCards = (obj) => {
   let domString = '';
   for (let i = 0;i < obj.length; i++){
@@ -85,11 +57,32 @@ const animalCards = (obj) => {
   printToDom('#animals', domString)
 }
 
+const filterPetsEvent = (e) => {
+  const buttonId = event.target.id
+  const filteredPets = [];
+  
+  if (buttonId === 'all'){
+    animalCards(animalArray)
+    return;
+  }
+   for (let i = 0; i< animalArray.length; i++){
+     if (animalArray[i].typeOfPet === buttonId){
+       filteredPets.push(animalArray[i])
+     }
+   }
+  animalCards(filteredPets);
+};
+const clickEvents = () => {
+  document.querySelector('#DOGO').addEventListener('click', filterPetsEvent );
+  document.querySelector('#CATO').addEventListener('click', filterPetsEvent );
+  document.querySelector('#LIZZO').addEventListener('click', filterPetsEvent );
+  document.querySelector('#all').addEventListener('click',  filterPetsEvent)
+ };
 
 
 
 const init = () => {
   animalCards(animalArray);
-  
+  clickEvents();
 }
 init()

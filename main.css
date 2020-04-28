@@ -36,10 +36,10 @@ button{
   list-style: none;
   display: flex;
   justify-content: space-evenly;
- 
+  
   
 }
-.myBtn li{
+.myBtn button{
   background-color: #FFAAAA;
   width: 70px;
   height: 30px;
@@ -49,4 +49,3 @@ button{
   justify-content: center;
   border-radius: 10px;
 }
-
